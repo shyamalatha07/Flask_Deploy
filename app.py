@@ -21,7 +21,7 @@ def predict():
     
     try:
         features = [float(requests.form[f'featured{i}']) for i in range(1, 5)]
-    expect ValueError:
+    except ValueError:
         return render_templates('result.html', prediction = "Invalid input. Please enter numeric values.")
     
     prediction = model.predict([features])[0]
